@@ -10,6 +10,16 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+        }
+      },
+      {
         test: /\.css$/,
         use: [
           'style-loader',
@@ -17,6 +27,9 @@ const config = {
         ]
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
   externals: {
     'react': 'jsmodule["react"]',
