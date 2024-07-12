@@ -1,0 +1,119 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "New Model",
+    "type": "object",
+    "properties": {
+        "amc_demo_kwalcollection": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "number"
+                },
+                "fields": {
+                    "type": "array",
+                    "additionalItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "path": {
+                                "type": "array",
+                                "additionalItems": true,
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "count": {
+                                "type": "number"
+                            },
+                            "type": {
+                                "type": [
+                                    "string",
+                                    "array"
+                                ],
+                                "items": {
+                                    "type": "string"
+                                },
+                                "additionalItems": true
+                            },
+                            "probability": {
+                                "type": "number"
+                            },
+                            "hasDuplicates": {
+                                "type": "boolean"
+                            },
+                            "types": {
+                                "type": "array",
+                                "additionalItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "bsonType": {
+                                            "type": "string"
+                                        },
+                                        "unique": {
+                                            "type": "number"
+                                        },
+                                        "hasDuplicates": {
+                                            "type": "boolean"
+                                        },
+                                        "path": {
+                                            "type": "array",
+                                            "additionalItems": true,
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "count": {
+                                            "type": "number"
+                                        },
+                                        "probability": {
+                                            "type": "number"
+                                        },
+                                        "values": {
+                                            "type": "array",
+                                            "additionalItems": true,
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": true,
+                                    "required": [
+                                        "name",
+                                        "bsonType",
+                                        "unique",
+                                        "hasDuplicates",
+                                        "path",
+                                        "count",
+                                        "probability"
+                                    ]
+                                }
+                            }
+                        },
+                        "additionalProperties": true,
+                        "required": [
+                            "name",
+                            "path",
+                            "count",
+                            "type",
+                            "probability",
+                            "hasDuplicates",
+                            "types"
+                        ]
+                    }
+                }
+            },
+            "additionalProperties": true,
+            "required": [
+                "count",
+                "fields"
+            ]
+        }
+    }
+}
