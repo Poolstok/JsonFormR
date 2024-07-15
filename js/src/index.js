@@ -3,41 +3,25 @@ const ReactDOM = require('react-dom');
 const Form = require('@rjsf/core').default;
 const validator = require('@rjsf/validator-ajv8').default;
 const { InputAdapter } = require('@/shiny.react');
+import { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
-require('bootstrap/dist/css/bootstrap.min.css');
-require('summernote/dist/summernote-bs5.css');
-const $ = require('jquery');
-require('summernote/dist/summernote-bs5.js');
-
-// Define the Summernote widget
-const SummernoteWidget = (props) => {
-  const { id, value, onChange } = props;
-
-  React.useEffect(() => {
-    $(`#${id}`).summernote({
-      height: 200,
-      callbacks: {
-        onChange: (contents) => {
-          onChange(contents);
-        },
-      },
-    });
-
-    // Set initial value
-    $(`#${id}`).summernote('code', value);
-
-    // Cleanup on unmount
-    return () => {
-      $(`#${id}`).summernote('destroy');
-    };
-  }, [id, value, onChange]);
-
-  return <textarea id={id} />;
-};
+function QuillInputWidget(props) {
+  const [value, setValue] = useState(props.value || '');
+  return (
+    <ReactQuill
+      theme = "snow"
+      value={value}
+      onChange={setValue}
+      onBlur={() => props.onChange(value)}
+    />
+  );
+}
 
 // Register the custom widget
 const widgets = {
-  summernoteInput: SummernoteWidget,
+  QuillInput: QuillInputWidget,
 };
 
 const ShinyForm = InputAdapter(Form, (value, setValue, props) => ({

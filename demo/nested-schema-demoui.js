@@ -2,7 +2,7 @@
   "tasks": {
     "items": {
       "details": {
-        "ui:widget": "summernoteInput"
+        "ui:widget": "QuillInput"
       }
     }
   }

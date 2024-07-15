@@ -10,22 +10,7 @@
 library(shiny)
 library(JsonFormR)
 library(bslib)
-rjsfDependency <- function() {
-    htmltools::htmlDependency(
-        name = "JsonFormR",
-        version = "1.0.0",
-        package = "JsonFormR",
-        src = "www",
-        script = "JsonFormR.js",
-        stylesheet = c(
-            "https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.css"
-        ),
-        head = "
 
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.js'></script>
-    "
-    )
-}
 # Define UI for application that draws a histogram
 ui <- page_fluid(
     theme = bs_theme(version = 5, preset='flatly'),
