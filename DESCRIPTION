@@ -1,6 +1,6 @@
 Package: JsonFormR
 Title: What the Package Does (One Line, Title Case)
-Version: 1.0.4
+Version: 1.0.5
 Authors@R: 
     person("Rutger", "Hertoghe", , "rutgerh@hotmail.be", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
