@@ -41,7 +41,9 @@ ui <- page_fluid(
 
         # Show a plot of the generated distribution
         mainPanel(
-           uiOutput('json_form')
+           uiOutput('json_form'),
+           hr(),
+           verbatimTextOutput('formdata')
         )
     )
 )
@@ -68,6 +70,9 @@ server <- function(input, output) {
             schema,
             uiSchema
         )
+    })
+    output$formdata <- renderPrint({
+      input$this.json.form
     })
 }
 

@@ -9,12 +9,15 @@ import 'react-quill/dist/quill.snow.css';
 
 function QuillInputWidget(props) {
   const [value, setValue] = useState(props.value || '');
+  const handleChange = (newValue) => {
+    setValue(newValue);
+    props.onChange(newValue);
+  };
   return (
     <ReactQuill
       theme = "snow"
       value={value}
-      onChange={setValue}
-      onBlur={() => props.onChange(value)}
+      onChange={handleChange}
     />
   );
 }
